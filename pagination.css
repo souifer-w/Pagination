@@ -1,0 +1,90 @@
+:root {
+  --bg: #f4f6fb;
+  --card: #ffffff;
+  --text: #1f2937;
+  --primary: #6366f1;
+  --border: #e5e7eb;
+}
+
+body {
+  margin: 0;
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: var(--bg);
+  font-family: Arial, sans-serif;
+}
+
+.pagination {
+  display: flex;
+  gap: 8px;
+  padding: 10px;
+  background: var(--card);
+  border-radius: 14px;
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+}
+
+.pagination a {
+  text-decoration: none;
+  color: var(--text);
+  padding: 10px 14px;
+  border-radius: 10px;
+  border: 1px solid var(--border);
+  transition: all 0.25s ease;
+  font-size: 14px;
+  position: relative;
+  overflow: hidden;
+}
+
+/* Hover effect */
+.pagination a:hover {
+  background: var(--primary);
+  color: white;
+  transform: translateY(-2px);
+  box-shadow: 0 6px 15px rgba(99, 102, 241, 0.3);
+}
+
+/* Active page */
+.pagination a.active {
+  background: var(--primary);
+  color: white;
+  font-weight: bold;
+  border: none;
+}
+
+/* Disabled */
+.pagination a.disabled {
+  opacity: 0.4;
+  pointer-events: none;
+}
+
+/* Click animation (CSS only feel) */
+.pagination a:active {
+  transform: scale(0.95);
+}
+
+/* Subtle shine animation */
+.pagination a::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: -75%;
+  width: 50%;
+  height: 100%;
+  background: rgba(255, 255, 255, 0.3);
+  transform: skewX(-20deg);
+}
+
+.pagination a:hover::after {
+  animation: shine 0.6s ease;
+}
+
+@keyframes shine {
+  0% {
+    left: -75%;
+  }
+  100% {
+    left: 125%;
+  }
+}
